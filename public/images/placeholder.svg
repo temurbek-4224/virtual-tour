@@ -1,0 +1,123 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600" preserveAspectRatio="xMidYMid slice">
+  <defs>
+    <linearGradient id="sky" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%"   stop-color="#0f2044"/>
+      <stop offset="55%"  stop-color="#1a3a6b"/>
+      <stop offset="100%" stop-color="#c2762a"/>
+    </linearGradient>
+    <linearGradient id="ground" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%"   stop-color="#92400e" stop-opacity="0.8"/>
+      <stop offset="100%" stop-color="#451a03" stop-opacity="0.9"/>
+    </linearGradient>
+    <linearGradient id="glow" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%"   stop-color="#fcd34d" stop-opacity="0.25"/>
+      <stop offset="100%" stop-color="#fcd34d" stop-opacity="0"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Sky background -->
+  <rect width="800" height="600" fill="url(#sky)"/>
+
+  <!-- Horizon glow -->
+  <ellipse cx="400" cy="480" rx="420" ry="90" fill="url(#glow)"/>
+
+  <!-- Stars -->
+  <circle cx="48"  cy="55"  r="1.5" fill="white" opacity="0.55"/>
+  <circle cx="130" cy="32"  r="1.2" fill="white" opacity="0.45"/>
+  <circle cx="215" cy="68"  r="1.8" fill="white" opacity="0.50"/>
+  <circle cx="310" cy="22"  r="1.2" fill="white" opacity="0.40"/>
+  <circle cx="395" cy="48"  r="1.5" fill="white" opacity="0.55"/>
+  <circle cx="475" cy="18"  r="1.8" fill="white" opacity="0.50"/>
+  <circle cx="568" cy="42"  r="1.2" fill="white" opacity="0.45"/>
+  <circle cx="642" cy="70"  r="1.5" fill="white" opacity="0.50"/>
+  <circle cx="740" cy="30"  r="1.2" fill="white" opacity="0.40"/>
+  <circle cx="770" cy="88"  r="1.8" fill="white" opacity="0.55"/>
+
+  <!-- Moon crescent -->
+  <circle cx="680" cy="110" r="38" fill="#fef3c7" opacity="0.85"/>
+  <circle cx="700" cy="98"  r="30" fill="#1a3a6b"/>
+
+  <!-- ── Architecture silhouettes ── -->
+
+  <!-- Far-left thin minaret -->
+  <rect x="62"  y="310" width="14" height="190" fill="#0a1628" opacity="0.85"/>
+  <rect x="55"  y="302" width="28" height="12"  fill="#0a1628" opacity="0.85"/>
+  <path d="M62 302 Q69 278 76 302" fill="#0a1628" opacity="0.85"/>
+  <rect x="65"  y="258" width="8"  height="22"  fill="#0a1628" opacity="0.85"/>
+  <circle cx="69" cy="254" r="5"   fill="#0a1628" opacity="0.85"/>
+
+  <!-- Left minaret (main) -->
+  <rect x="130" y="265" width="22" height="235" fill="#0a1628" opacity="0.90"/>
+  <rect x="120" y="255" width="42" height="14"  fill="#0a1628" opacity="0.90"/>
+  <path d="M130 255 Q141 226 152 255" fill="#0a1628" opacity="0.90"/>
+  <rect x="135" y="208" width="12" height="20"  fill="#0a1628" opacity="0.90"/>
+  <circle cx="141" cy="203" r="7"  fill="#0a1628" opacity="0.90"/>
+
+  <!-- Central dome complex -->
+  <!-- Base building -->
+  <rect x="248" y="320" width="304" height="180" fill="#0a1628" opacity="0.90"/>
+  <!-- Main large dome -->
+  <path d="M268 320 Q400 195 532 320 Z" fill="#0a1628" opacity="0.90"/>
+  <!-- Left small dome -->
+  <path d="M248 320 Q298 282 348 320 Z" fill="#0a1628" opacity="0.88"/>
+  <!-- Right small dome -->
+  <path d="M452 320 Q502 282 552 320 Z" fill="#0a1628" opacity="0.88"/>
+  <!-- Arch windows on facade -->
+  <path d="M278 500 Q292 468 306 500" fill="#1a3a6b" opacity="0.55"/>
+  <path d="M318 500 Q332 468 346 500" fill="#1a3a6b" opacity="0.55"/>
+  <path d="M358 500 Q372 468 386 500" fill="#1a3a6b" opacity="0.55"/>
+  <path d="M398 500 Q412 468 426 500" fill="#1a3a6b" opacity="0.55"/>
+  <path d="M438 500 Q452 468 466 500" fill="#1a3a6b" opacity="0.55"/>
+  <path d="M478 500 Q492 468 506 500" fill="#1a3a6b" opacity="0.55"/>
+  <!-- Central tall portal arch -->
+  <path d="M368 500 Q400 430 432 500" fill="#0f2044" opacity="0.80"/>
+  <!-- Minaret finials on central complex -->
+  <rect x="255" y="248" width="8"  height="76" fill="#0a1628" opacity="0.85"/>
+  <circle cx="259" cy="244" r="5"  fill="#0a1628" opacity="0.85"/>
+  <rect x="537" y="248" width="8"  height="76" fill="#0a1628" opacity="0.85"/>
+  <circle cx="541" cy="244" r="5"  fill="#0a1628" opacity="0.85"/>
+
+  <!-- Right minaret (main) -->
+  <rect x="648" y="265" width="22" height="235" fill="#0a1628" opacity="0.90"/>
+  <rect x="638" y="255" width="42" height="14"  fill="#0a1628" opacity="0.90"/>
+  <path d="M648 255 Q659 226 670 255" fill="#0a1628" opacity="0.90"/>
+  <rect x="653" y="208" width="12" height="20"  fill="#0a1628" opacity="0.90"/>
+  <circle cx="659" cy="203" r="7"  fill="#0a1628" opacity="0.90"/>
+
+  <!-- Far-right thin minaret -->
+  <rect x="724" y="310" width="14" height="190" fill="#0a1628" opacity="0.85"/>
+  <rect x="717" y="302" width="28" height="12"  fill="#0a1628" opacity="0.85"/>
+  <path d="M724 302 Q731 278 738 302" fill="#0a1628" opacity="0.85"/>
+  <rect x="727" y="258" width="8"  height="22"  fill="#0a1628" opacity="0.85"/>
+  <circle cx="731" cy="254" r="5"  fill="#0a1628" opacity="0.85"/>
+
+  <!-- Ground strip -->
+  <rect x="0" y="495" width="800" height="105" fill="url(#ground)"/>
+
+  <!-- Camera + label badge -->
+  <rect x="292" y="390" width="216" height="66" rx="10" fill="black" opacity="0.30"/>
+
+  <!-- Camera icon (pure SVG, no emoji) -->
+  <!-- Body -->
+  <rect x="356" y="403" width="44" height="30" rx="4" fill="white" opacity="0.40"/>
+  <!-- Lens ring -->
+  <circle cx="378" cy="418" r="10" fill="none" stroke="white" stroke-width="2.5" opacity="0.40"/>
+  <!-- Lens inner -->
+  <circle cx="378" cy="418" r="5"  fill="white" opacity="0.35"/>
+  <!-- Viewfinder bump -->
+  <rect x="363" y="398" width="13" height="7" rx="2" fill="white" opacity="0.38"/>
+  <!-- Flash dot -->
+  <circle cx="390" cy="408" r="2.5" fill="white" opacity="0.45"/>
+
+  <!-- Label text -->
+  <text
+    x="400" y="443"
+    text-anchor="middle"
+    font-family="system-ui, -apple-system, 'Segoe UI', sans-serif"
+    font-size="11.5"
+    font-weight="500"
+    fill="white"
+    opacity="0.55"
+    letter-spacing="1.5"
+  >IMAGE COMING SOON</text>
+</svg>

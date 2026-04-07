@@ -1,0 +1,147 @@
+// ─────────────────────────────────────────────────────────────────────────────
+// Prisma Schema — Virtual Tour Uzbekistan
+// Provider: Neon PostgreSQL
+// ─────────────────────────────────────────────────────────────────────────────
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider  = "postgresql"
+  url       = env("DATABASE_URL")
+  directUrl = env("DIRECT_URL")
+}
+
+// ─── Location ────────────────────────────────────────────────────────────────
+
+model Location {
+  id            Int      @id @default(autoincrement())
+  slug          String   @unique
+  categoryId    Int
+  regionId      Int
+  latitude      Float    @default(0)
+  longitude     Float    @default(0)
+  coverImage    String   @default("")
+  galleryImages String[]
+  youtubeUrl    String   @default("")
+  youtubeVrUrl  String   @default("")
+  googleMapsUrl String   @default("")
+  yandexMapsUrl String   @default("")
+  directionsUrl String   @default("")
+  didYouKnowEn  String   @default("")
+  didYouKnowUz  String   @default("")
+  didYouKnowRu  String   @default("")
+  tags          String[]
+  isPublished   Boolean  @default(false)
+  createdAt     DateTime @default(now())
+  updatedAt     DateTime @updatedAt
+
+  category     Category              @relation(fields: [categoryId], references: [id])
+  region       Region                @relation(fields: [regionId], references: [id])
+  translations LocationTranslation[]
+
+  @@index([categoryId])
+  @@index([regionId])
+  @@index([isPublished])
+}
+
+// ─── LocationTranslation ─────────────────────────────────────────────────────
+
+model LocationTranslation {
+  id               Int    @id @default(autoincrement())
+  locationId       Int
+  locale           String // 'en' | 'uz' | 'ru'
+  name             String
+  shortDescription String
+  fullDescription  String
+
+  location Location @relation(fields: [locationId], references: [id], onDelete: Cascade)
+
+  @@unique([locationId, locale])
+  @@index([locationId])
+}
+
+// ─── Category ────────────────────────────────────────────────────────────────
+
+model Category {
+  id        Int        @id @default(autoincrement())
+  slug      String     @unique
+  nameEn    String
+  nameUz    String
+  nameRu    String
+  locations Location[]
+}
+
+// ─── Region ──────────────────────────────────────────────────────────────────
+
+model Region {
+  id        Int        @id @default(autoincrement())
+  slug      String     @unique
+  nameEn    String
+  nameUz    String
+  nameRu    String
+  locations Location[]
+}
+
+// ─── NextAuth Models ─────────────────────────────────────────────────────────
+// Required by @next-auth/prisma-adapter.
+// Do not rename or remove fields — NextAuth depends on exact field names.
+
+model User {
+  id            String    @id @default(cuid())
+  name          String?
+  email         String?   @unique
+  emailVerified DateTime?
+  image         String?
+  role          String    @default("user") // "user" | "admin"
+  createdAt     DateTime  @default(now())
+
+  accounts Account[]
+  sessions Session[]
+}
+
+model Account {
+  id                String  @id @default(cuid())
+  userId            String
+  type              String
+  provider          String
+  providerAccountId String
+  refresh_token     String? @db.Text
+  access_token      String? @db.Text
+  expires_at        Int?
+  token_type        String?
+  scope             String?
+  id_token          String? @db.Text
+  session_state     String?
+
+  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@unique([provider, providerAccountId])
+}
+
+model Session {
+  id           String   @id @default(cuid())
+  sessionToken String   @unique
+  userId       String
+  expires      DateTime
+
+  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+}
+
+model VerificationToken {
+  identifier String
+  token      String   @unique
+  expires    DateTime
+
+  @@unique([identifier, token])
+}
+
+// ─── SiteConfig ───────────────────────────────────────────────────────────────
+// Singleton row (id = 1). Stores global site settings editable from the admin.
+
+model SiteConfig {
+  id           Int      @id @default(autoincrement())
+  heroImageUrl String   @default("")
+  updatedAt    DateTime @updatedAt
+}
