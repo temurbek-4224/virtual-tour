@@ -1,0 +1,191 @@
+{
+  "nav": {
+    "home": "Bosh sahifa",
+    "destinations": "Yo'nalishlar",
+    "tour": "360° sayohat",
+    "countries": "Mamlakatlar",
+    "about": "Biz haqimizda",
+    "admin": "Admin panel",
+    "signIn": "Kirish",
+    "signOut": "Chiqish",
+    "myAccount": "Mening hisobim"
+  },
+  "panorama": {
+    "title": "360° Virtual sayohat",
+    "subtitle": "Tashkent City panoramali ko'rinishini interaktiv tarzda tomosha qiling.",
+    "aboutTitle": "Tashkent City haqida",
+    "aboutText": "Tashkent City — O'zbekiston poytaxti markazida joylashgan zamonaviy biznes va ko'ngil ochar majmua. Majmua ta'sirchan osmono'par binolar, hashamatli mehmonxonalar, savdo markazlari va chiroyli bog'larni o'z ichiga oladi. Uning yashnagan minoralar va keng xiyobonlari butun shahar bo'ylab ajoyib panoramik manzaralarni taqdim etadi.",
+    "selectView": "Panoramani tanlang",
+    "dragHint": "Ko'rish uchun torting · Kattalashtirish uchun aylantiring",
+    "location": "Joylashuv",
+    "tipTitle": "Maslahat",
+    "tipText": "Panoramani aylantirish uchun sichqoncha yoki tegilishdan foydalaning. Kattalashtirish uchun aylantiring yoki ikki barmoq bilan torting."
+  },
+  "home": {
+    "virtualTour": {
+      "badge": "360° Virtual sayohat",
+      "title": "360° Virtual sayohat",
+      "subtitle": "Tashkent City panoramasini interaktiv tarzda aylantirib ko'ring.",
+      "cta": "Ko'rish"
+    },
+    "hero": {
+      "badge": "Premium Virtual Sayohat Tajribasi",
+      "title": "Dunyoning eng",
+      "titleAccent": "ajoyib joylarini kashf eting",
+      "subtitle": "Ajoyib vizuallar, immersiv virtual turlar va boy madaniy hikoyalar orqali nafas rostlaydigan yo'nalishlarga sho'ng'ing. Sayohatingiz shu yerdan boshlanadi.",
+      "cta": "Yo'nalishlarni kashf eting",
+      "ctaSecondary": "Virtual turlarni tomosha qiling"
+    },
+    "stats": {
+      "destinations": "Yo'nalish",
+      "countries": "Mamlakat",
+      "virtualTours": "Virtual tur",
+      "visitors": "Oylik tashrif buyuruvchi"
+    },
+    "featured": {
+      "badge": "Siz uchun tanlangan",
+      "title": "Mashhur yo'nalishlar",
+      "subtitle": "O'zbekistonning qadimiy Ipak yo'li shaharlaridan Rimning abadiy ulug'vorligiga qadar — dunyoning eng qiziqarli joylarini kashf eting."
+    },
+    "uzbekistan": {
+      "badge": "Diqqat markazida",
+      "title": "O'zbekistonni kashf eting",
+      "subtitle": "Samarqand, Buxoro va Xivaning afsonaviy Ipak yo'li shaharlarida sayohat qiling — bu yerda ulug'vor islom me'morchiligi va qadimiy tarix sizni kutmoqda.",
+      "cta": "O'zbekistonni kashf eting"
+    },
+    "countries": {
+      "badge": "Dunyo yo'nalishlari",
+      "title": "Mamlakatlar bo'yicha ko'rish",
+      "subtitle": "Yo'nalishingizni tanlang va unutilmas virtual sayohatni boshlang."
+    }
+  },
+  "destinations": {
+    "title": "Barcha yo'nalishlar",
+    "subtitle": "Dunyoning eng ajoyib joylarining tanlab olingan to'plamini ko'ring.",
+    "search": "Yo'nalishlar, shaharlar, joylarni qidirish...",
+    "filter": {
+      "all": "Barcha mamlakatlar",
+      "label": "Mamlakat bo'yicha filtrlash"
+    },
+    "noResults": "Qidiruv natijasiga mos yo'nalish topilmadi.",
+    "places": "joy"
+  },
+  "country": {
+    "cities": "Kashf etish uchun shaharlar",
+    "backToDestinations": "Yo'nalishlarga qaytish"
+  },
+  "city": {
+    "places": "Tashrif buyurish joylari",
+    "backToCountry": "{country}ga qaytish",
+    "explorePlace": "Kashf eting"
+  },
+  "place": {
+    "about": "Bu joy haqida",
+    "gallery": "Foto galereya",
+    "map": "Joylashuv va xarita",
+    "virtualTour": "Virtual tur",
+    "category": "Kategoriya",
+    "location": "Joylashuv",
+    "backToCity": "{city}ga qaytish",
+    "share": "Ulashish",
+    "watchTour": "Virtual turni tomosha qilish",
+    "viewGallery": "Galerey ko'rish"
+  },
+  "admin": {
+    "dashboard": "Boshqaruv paneli",
+    "overview": "Platforma umumiy ko'rinishi",
+    "users": "Foydalanuvchilar",
+    "countries": "Mamlakatlar",
+    "cities": "Shaharlar",
+    "places": "Joylar",
+    "addNew": "Yangi qo'shish",
+    "edit": "Tahrirlash",
+    "delete": "O'chirish",
+    "save": "O'zgarishlarni saqlash",
+    "create": "Yaratish",
+    "cancel": "Bekor qilish",
+    "confirm": "Tasdiqlash",
+    "confirmDelete": "Buni o'chirishni xohlaysizmi? Bu amalni ortga qaytarib bo'lmaydi.",
+    "search": "Qidirish...",
+    "actions": "Harakatlar",
+    "noData": "Yozuvlar topilmadi.",
+    "stats": {
+      "totalUsers": "Jami foydalanuvchilar",
+      "totalCountries": "Mamlakatlar",
+      "totalCities": "Shaharlar",
+      "totalPlaces": "Joylar"
+    },
+    "user": {
+      "name": "Ism",
+      "email": "Email",
+      "role": "Rol",
+      "joined": "Qo'shilgan sana",
+      "makeAdmin": "Admin qilish",
+      "removeAdmin": "Adminlikni olib tashlash"
+    },
+    "form": {
+      "slug": "Slug (URL identifikatori)",
+      "slugHint": "Noyob URL-identifikator (masalan, registan-maydoni)",
+      "coverImage": "Muqova rasmi URL",
+      "flagEmoji": "Bayroq emoji",
+      "featured": "Bosh sahifada ko'rsatish",
+      "country": "Mamlakat",
+      "city": "Shahar",
+      "category": "Kategoriya",
+      "latitude": "Kenglik",
+      "longitude": "Uzunlik",
+      "mapEmbedUrl": "Xarita embed URL",
+      "translations": "Tarjimalar",
+      "name_en": "Nomi (Inglizcha)",
+      "name_ru": "Nomi (Ruscha)",
+      "name_uz": "Nomi (O'zbekcha)",
+      "description_en": "Tavsif (Inglizcha)",
+      "description_ru": "Tavsif (Ruscha)",
+      "description_uz": "Tavsif (O'zbekcha)",
+      "title_en": "Sarlavha (Inglizcha)",
+      "title_ru": "Sarlavha (Ruscha)",
+      "title_uz": "Sarlavha (O'zbekcha)",
+      "shortDesc_en": "Qisqa tavsif (Inglizcha)",
+      "shortDesc_ru": "Qisqa tavsif (Ruscha)",
+      "shortDesc_uz": "Qisqa tavsif (O'zbekcha)",
+      "fullDesc_en": "To'liq tavsif (Inglizcha)",
+      "fullDesc_ru": "To'liq tavsif (Ruscha)",
+      "fullDesc_uz": "To'liq tavsif (O'zbekcha)",
+      "youtubeId": "YouTube Video ID",
+      "videoTitle": "Video sarlavhasi",
+      "imageUrl": "Rasm URL",
+      "imageCaption": "Rasm tavsifi",
+      "imageOrder": "Ko'rsatish tartibi"
+    }
+  },
+  "auth": {
+    "signInTitle": "Xush kelibsiz",
+    "signInSubtitle": "Hisobingizga kiring",
+    "signInWithGoogle": "Google orqali kirish",
+    "adminOnly": "Bu bo'lim faqat administratorlar uchun.",
+    "unauthorized": "Sizda bu sahifaga kirish huquqi yo'q.",
+    "sessionExpired": "Sessiyangiz tugadi. Iltimos, qayta kiring."
+  },
+  "common": {
+    "loading": "Yuklanmoqda...",
+    "error": "Xatolik yuz berdi. Iltimos, qayta urinib ko'ring.",
+    "notFound": "Sahifa topilmadi",
+    "backHome": "Bosh sahifaga qaytish",
+    "readMore": "Ko'proq o'qish",
+    "viewAll": "Hammasini ko'rish",
+    "close": "Yopish",
+    "open": "Ochish",
+    "yes": "Ha",
+    "no": "Yo'q"
+  },
+  "footer": {
+    "tagline": "Dunyoning eng ajoyib joylariga darvozangiz.",
+    "navigation": "Navigatsiya",
+    "explore": "Kashf eting",
+    "legal": "Huquqiy",
+    "privacy": "Maxfiylik siyosati",
+    "terms": "Foydalanish shartlari",
+    "copyright": "© {year} Virtual Travel Platform. Barcha huquqlar himoyalangan.",
+    "madeWith": "Sayohatsevarlarga muhabbat bilan yaratilgan"
+  }
+}

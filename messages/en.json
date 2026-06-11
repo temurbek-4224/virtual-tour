@@ -1,0 +1,191 @@
+{
+  "nav": {
+    "home": "Home",
+    "destinations": "Destinations",
+    "tour": "360° tour",
+    "countries": "Countries",
+    "about": "About",
+    "admin": "Admin Panel",
+    "signIn": "Sign In",
+    "signOut": "Sign Out",
+    "myAccount": "My Account"
+  },
+  "panorama": {
+    "title": "360° Virtual Tour",
+    "subtitle": "Explore the Tashkent City panorama interactively.",
+    "aboutTitle": "About Tashkent City",
+    "aboutText": "Tashkent City is a modern business and entertainment complex in the heart of Uzbekistan's capital. The complex features impressive skyscrapers, luxury hotels, shopping malls, and beautifully landscaped parks. Its gleaming towers and wide boulevards offer stunning panoramic views of the entire city.",
+    "selectView": "Select a panorama",
+    "dragHint": "Click & drag to explore · Scroll to zoom",
+    "location": "Location",
+    "tipTitle": "Viewing tip",
+    "tipText": "Use mouse drag or touch swipe to pan the view. Scroll or pinch to zoom in and out."
+  },
+  "home": {
+    "virtualTour": {
+      "badge": "360° Virtual Tour",
+      "title": "360° Virtual Tour",
+      "subtitle": "Explore the Tashkent City panorama interactively.",
+      "cta": "View"
+    },
+    "hero": {
+      "badge": "Premium Virtual Travel Experience",
+      "title": "Explore the World's Most",
+      "titleAccent": "Extraordinary Places",
+      "subtitle": "Immerse yourself in breathtaking destinations through stunning visuals, immersive virtual tours, and rich cultural stories. Your journey starts here.",
+      "cta": "Explore Destinations",
+      "ctaSecondary": "Watch Virtual Tours"
+    },
+    "stats": {
+      "destinations": "Destinations",
+      "countries": "Countries",
+      "virtualTours": "Virtual Tours",
+      "visitors": "Monthly Visitors"
+    },
+    "featured": {
+      "badge": "Handpicked for You",
+      "title": "Featured Destinations",
+      "subtitle": "From the ancient Silk Road cities of Uzbekistan to the timeless grandeur of Rome — discover the world's most captivating places."
+    },
+    "uzbekistan": {
+      "badge": "Spotlight",
+      "title": "Discover Uzbekistan",
+      "subtitle": "Journey through the legendary Silk Road cities of Samarkand, Bukhara, and Khiva — where magnificent Islamic architecture and ancient history await.",
+      "cta": "Explore Uzbekistan"
+    },
+    "countries": {
+      "badge": "World Destinations",
+      "title": "Browse by Country",
+      "subtitle": "Choose your destination and begin an unforgettable virtual journey."
+    }
+  },
+  "destinations": {
+    "title": "All Destinations",
+    "subtitle": "Explore our curated collection of the world's most remarkable places.",
+    "search": "Search destinations, cities, places...",
+    "filter": {
+      "all": "All Countries",
+      "label": "Filter by country"
+    },
+    "noResults": "No destinations found matching your search.",
+    "places": "places"
+  },
+  "country": {
+    "cities": "Cities to Explore",
+    "backToDestinations": "Back to Destinations"
+  },
+  "city": {
+    "places": "Places to Visit",
+    "backToCountry": "Back to {country}",
+    "explorePlace": "Explore"
+  },
+  "place": {
+    "about": "About This Place",
+    "gallery": "Photo Gallery",
+    "map": "Location & Map",
+    "virtualTour": "Virtual Tour",
+    "category": "Category",
+    "location": "Location",
+    "backToCity": "Back to {city}",
+    "share": "Share",
+    "watchTour": "Watch Virtual Tour",
+    "viewGallery": "View Gallery"
+  },
+  "admin": {
+    "dashboard": "Dashboard",
+    "overview": "Platform Overview",
+    "users": "Users",
+    "countries": "Countries",
+    "cities": "Cities",
+    "places": "Places",
+    "addNew": "Add New",
+    "edit": "Edit",
+    "delete": "Delete",
+    "save": "Save Changes",
+    "create": "Create",
+    "cancel": "Cancel",
+    "confirm": "Confirm",
+    "confirmDelete": "Are you sure you want to delete this? This action cannot be undone.",
+    "search": "Search...",
+    "actions": "Actions",
+    "noData": "No records found.",
+    "stats": {
+      "totalUsers": "Total Users",
+      "totalCountries": "Countries",
+      "totalCities": "Cities",
+      "totalPlaces": "Places"
+    },
+    "user": {
+      "name": "Name",
+      "email": "Email",
+      "role": "Role",
+      "joined": "Joined",
+      "makeAdmin": "Make Admin",
+      "removeAdmin": "Remove Admin"
+    },
+    "form": {
+      "slug": "Slug (URL identifier)",
+      "slugHint": "Unique URL-friendly identifier (e.g., registan-square)",
+      "coverImage": "Cover Image URL",
+      "flagEmoji": "Flag Emoji",
+      "featured": "Featured on homepage",
+      "country": "Country",
+      "city": "City",
+      "category": "Category",
+      "latitude": "Latitude",
+      "longitude": "Longitude",
+      "mapEmbedUrl": "Map Embed URL",
+      "translations": "Translations",
+      "name_en": "Name (English)",
+      "name_ru": "Name (Russian)",
+      "name_uz": "Name (Uzbek)",
+      "description_en": "Description (English)",
+      "description_ru": "Description (Russian)",
+      "description_uz": "Description (Uzbek)",
+      "title_en": "Title (English)",
+      "title_ru": "Title (Russian)",
+      "title_uz": "Title (Uzbek)",
+      "shortDesc_en": "Short Description (English)",
+      "shortDesc_ru": "Short Description (Russian)",
+      "shortDesc_uz": "Short Description (Uzbek)",
+      "fullDesc_en": "Full Description (English)",
+      "fullDesc_ru": "Full Description (Russian)",
+      "fullDesc_uz": "Full Description (Uzbek)",
+      "youtubeId": "YouTube Video ID",
+      "videoTitle": "Video Title",
+      "imageUrl": "Image URL",
+      "imageCaption": "Image Caption",
+      "imageOrder": "Display Order"
+    }
+  },
+  "auth": {
+    "signInTitle": "Welcome Back",
+    "signInSubtitle": "Sign in to access your account",
+    "signInWithGoogle": "Continue with Google",
+    "adminOnly": "This area is restricted to administrators only.",
+    "unauthorized": "You don't have permission to access this page.",
+    "sessionExpired": "Your session has expired. Please sign in again."
+  },
+  "common": {
+    "loading": "Loading...",
+    "error": "An error occurred. Please try again.",
+    "notFound": "Page not found",
+    "backHome": "Back to Home",
+    "readMore": "Read More",
+    "viewAll": "View All",
+    "close": "Close",
+    "open": "Open",
+    "yes": "Yes",
+    "no": "No"
+  },
+  "footer": {
+    "tagline": "Your gateway to the world's most extraordinary places.",
+    "navigation": "Navigation",
+    "explore": "Explore",
+    "legal": "Legal",
+    "privacy": "Privacy Policy",
+    "terms": "Terms of Service",
+    "copyright": "© {year} Virtual Travel Platform. All rights reserved.",
+    "madeWith": "Made with passion for travel"
+  }
+}
