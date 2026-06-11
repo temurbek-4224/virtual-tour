@@ -2,27 +2,44 @@ import { Metadata } from 'next';
 import { getTranslations } from 'next-intl/server';
 import Image from 'next/image';
 import Link from 'next/link';
+import { Prisma } from '@prisma/client';
 import { prisma } from '@/lib/prisma';
-import { MapPin, ArrowRight, Search } from 'lucide-react';
+import { MapPin, ArrowRight, Globe } from 'lucide-react';
 
 export const metadata: Metadata = {
   title: 'Destinations — Virtual Travel Platform',
 };
 
-async function getAllDestinations() {
-  return prisma.country.findMany({
-    include: {
-      translations: true,
-      cities: {
-        include: {
-          translations: true,
-          _count: { select: { places: true } },
+type DestinationCountry = Prisma.CountryGetPayload<{
+  include: {
+    translations: true;
+    cities: {
+      include: {
+        translations: true;
+        _count: { select: { places: true } };
+      };
+    };
+  };
+}>;
+
+async function getAllDestinations(): Promise<DestinationCountry[]> {
+  try {
+    return await prisma.country.findMany({
+      include: {
+        translations: true,
+        cities: {
+          include: {
+            translations: true,
+            _count: { select: { places: true } },
+          },
+          orderBy: { featured: 'desc' },
         },
-        orderBy: { featured: 'desc' },
       },
-    },
-    orderBy: { featured: 'desc' },
-  });
+      orderBy: { featured: 'desc' },
+    });
+  } catch {
+    return [];
+  }
 }
 
 export default async function DestinationsPage({
@@ -32,6 +49,7 @@ export default async function DestinationsPage({
 }) {
   const t = await getTranslations('destinations');
   const countries = await getAllDestinations();
+  const dbUnavailable = countries.length === 0;
 
   return (
     <div className="min-h-screen pt-24 pb-16">
@@ -45,6 +63,13 @@ export default async function DestinationsPage({
 
       {/* Countries and Cities */}
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-20">
+        {dbUnavailable && (
+          <div className="text-center py-20">
+            <Globe className="w-14 h-14 mx-auto text-blue-400/20 mb-4" />
+            <p className="text-blue-300/50 text-lg font-medium">Destinations are temporarily unavailable.</p>
+            <p className="text-blue-300/30 text-sm mt-1">Please try again in a moment.</p>
+          </div>
+        )}
         {countries.map((country) => {
           const countryName =
             country.translations.find((t) => t.locale === locale)?.name ||

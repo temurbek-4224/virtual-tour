@@ -4,41 +4,62 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { getTranslations } from 'next-intl/server';
 import { prisma } from '@/lib/prisma';
-import { ArrowLeft, MapPin, ArrowRight, Tag } from 'lucide-react';
+import { ArrowLeft, MapPin, ArrowRight, Tag, Globe } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
 
 type Props = { params: { locale: string; countrySlug: string; citySlug: string } };
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
-  const city = await prisma.city.findUnique({
-    where: { slug: params.citySlug },
-    include: { translations: true },
-  });
-  if (!city) return { title: 'Not Found' };
-  const name =
-    city.translations.find((t) => t.locale === params.locale)?.name ||
-    city.translations.find((t) => t.locale === 'en')?.name;
-  return { title: `${name} — Virtual Travel Platform` };
+  try {
+    const city = await prisma.city.findUnique({
+      where: { slug: params.citySlug },
+      include: { translations: true },
+    });
+    if (!city) return { title: 'Not Found' };
+    const name =
+      city.translations.find((t) => t.locale === params.locale)?.name ||
+      city.translations.find((t) => t.locale === 'en')?.name;
+    return { title: `${name} — Virtual Travel Platform` };
+  } catch {
+    return { title: 'Virtual Travel Platform' };
+  }
 }
 
 export default async function CityPage({ params: { locale, countrySlug, citySlug } }: Props) {
   const t = await getTranslations('city');
 
-  const city = await prisma.city.findUnique({
-    where: { slug: citySlug },
-    include: {
-      translations: true,
-      country: { include: { translations: true } },
-      places: {
-        include: {
-          translations: true,
-          images: { orderBy: { sortOrder: 'asc' }, take: 1 },
+  let city;
+  try {
+    city = await prisma.city.findUnique({
+      where: { slug: citySlug },
+      include: {
+        translations: true,
+        country: { include: { translations: true } },
+        places: {
+          include: {
+            translations: true,
+            images: { orderBy: { sortOrder: 'asc' }, take: 1 },
+          },
+          orderBy: { featured: 'desc' },
         },
-        orderBy: { featured: 'desc' },
       },
-    },
-  });
+    });
+  } catch {
+    return (
+      <div className="min-h-screen pt-24 pb-16 flex items-center justify-center px-4">
+        <div className="text-center">
+          <Globe className="w-16 h-16 mx-auto text-blue-400/20 mb-4" />
+          <h2 className="text-2xl font-bold text-white mb-2">Service Temporarily Unavailable</h2>
+          <p className="text-blue-300/50 mb-8">We&apos;re having trouble reaching the database. Please try again shortly.</p>
+          <Link href={`/${locale}/destinations`} className="inline-flex items-center gap-2 px-6 py-3 bg-blue-600 hover:bg-blue-500 text-white font-medium rounded-xl transition-colors">
+            <ArrowLeft className="w-4 h-4" />
+            Back to Destinations
+          </Link>
+        </div>
+      </div>
+    );
+  }
 
   if (!city || city.country.slug !== countrySlug) notFound();
 

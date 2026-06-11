@@ -31,11 +31,16 @@ export const authOptions: NextAuthOptions = {
       if (user) {
         token.id = user.id;
         // Fetch role from DB (not present on the default user object)
-        const dbUser = await prisma.user.findUnique({
-          where: { id: user.id },
-          select: { role: true },
-        });
-        token.role = dbUser?.role ?? Role.USER;
+        try {
+          const dbUser = await prisma.user.findUnique({
+            where: { id: user.id },
+            select: { role: true },
+          });
+          token.role = dbUser?.role ?? Role.USER;
+        } catch {
+          // DB unreachable — fall back to USER role so sign-in still works
+          token.role = Role.USER;
+        }
       }
       return token;
     },
@@ -59,10 +64,14 @@ export const authOptions: NextAuthOptions = {
       // Automatically make the pre-configured admin email an ADMIN
       const adminEmail = process.env.ADMIN_EMAIL;
       if (adminEmail && user.email === adminEmail) {
-        await prisma.user.update({
-          where: { id: user.id },
-          data: { role: Role.ADMIN },
-        });
+        try {
+          await prisma.user.update({
+            where: { id: user.id },
+            data: { role: Role.ADMIN },
+          });
+        } catch {
+          // DB unreachable — admin promotion skipped; set ADMIN_EMAIL manually via Prisma Studio
+        }
       }
     },
   },

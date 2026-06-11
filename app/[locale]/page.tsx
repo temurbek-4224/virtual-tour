@@ -2,6 +2,7 @@ import { Metadata } from 'next';
 import { getTranslations } from 'next-intl/server';
 import Image from 'next/image';
 import Link from 'next/link';
+import { Prisma } from '@prisma/client';
 import { prisma } from '@/lib/prisma';
 import {
   MapPin,
@@ -29,29 +30,57 @@ export async function generateMetadata({
   };
 }
 
-async function getHomeData() {
-  const [featuredCountries, featuredCities, stats] = await Promise.all([
-    prisma.country.findMany({
-      where: { featured: true },
-      include: {
-        translations: true,
-        cities: { include: { translations: true, _count: { select: { places: true } } } },
-      },
-      orderBy: { createdAt: 'asc' },
-    }),
-    prisma.city.findMany({
-      where: { featured: true },
-      include: {
-        translations: true,
-        country: { include: { translations: true } },
-        _count: { select: { places: true } },
-      },
-      take: 6,
-    }),
-    Promise.all([prisma.country.count(), prisma.city.count(), prisma.place.count()]),
-  ]);
+type FeaturedCountry = Prisma.CountryGetPayload<{
+  include: {
+    translations: true;
+    cities: { include: { translations: true; _count: { select: { places: true } } } };
+  };
+}>;
 
-  return { featuredCountries, featuredCities, stats };
+type FeaturedCity = Prisma.CityGetPayload<{
+  include: {
+    translations: true;
+    country: { include: { translations: true } };
+    _count: { select: { places: true } };
+  };
+}>;
+
+async function getHomeData(): Promise<{
+  featuredCountries: FeaturedCountry[];
+  featuredCities: FeaturedCity[];
+  stats: [number, number, number];
+}> {
+  try {
+    const [featuredCountries, featuredCities, stats] = await Promise.all([
+      prisma.country.findMany({
+        where: { featured: true },
+        include: {
+          translations: true,
+          cities: { include: { translations: true, _count: { select: { places: true } } } },
+        },
+        orderBy: { createdAt: 'asc' },
+      }),
+      prisma.city.findMany({
+        where: { featured: true },
+        include: {
+          translations: true,
+          country: { include: { translations: true } },
+          _count: { select: { places: true } },
+        },
+        take: 6,
+      }),
+      Promise.all([prisma.country.count(), prisma.city.count(), prisma.place.count()]),
+    ]);
+
+    return { featuredCountries, featuredCities, stats };
+  } catch {
+    // Database unreachable — return safe empty fallbacks so the page still renders
+    return {
+      featuredCountries: [],
+      featuredCities: [],
+      stats: [0, 0, 0],
+    };
+  }
 }
 
 // ─── Static showcase data for countries not yet in DB ───────────────────────

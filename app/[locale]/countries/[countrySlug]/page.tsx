@@ -4,39 +4,60 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { getTranslations } from 'next-intl/server';
 import { prisma } from '@/lib/prisma';
-import { ArrowLeft, MapPin, ArrowRight } from 'lucide-react';
+import { ArrowLeft, MapPin, ArrowRight, Globe } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 
 type Props = { params: { locale: string; countrySlug: string } };
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
-  const country = await prisma.country.findUnique({
-    where: { slug: params.countrySlug },
-    include: { translations: true },
-  });
-  if (!country) return { title: 'Not Found' };
-  const name =
-    country.translations.find((t) => t.locale === params.locale)?.name ||
-    country.translations.find((t) => t.locale === 'en')?.name;
-  return { title: `${name} — Virtual Travel Platform` };
+  try {
+    const country = await prisma.country.findUnique({
+      where: { slug: params.countrySlug },
+      include: { translations: true },
+    });
+    if (!country) return { title: 'Not Found' };
+    const name =
+      country.translations.find((t) => t.locale === params.locale)?.name ||
+      country.translations.find((t) => t.locale === 'en')?.name;
+    return { title: `${name} — Virtual Travel Platform` };
+  } catch {
+    return { title: 'Virtual Travel Platform' };
+  }
 }
 
 export default async function CountryPage({ params: { locale, countrySlug } }: Props) {
   const t = await getTranslations('country');
 
-  const country = await prisma.country.findUnique({
-    where: { slug: countrySlug },
-    include: {
-      translations: true,
-      cities: {
-        include: {
-          translations: true,
-          _count: { select: { places: true } },
+  let country;
+  try {
+    country = await prisma.country.findUnique({
+      where: { slug: countrySlug },
+      include: {
+        translations: true,
+        cities: {
+          include: {
+            translations: true,
+            _count: { select: { places: true } },
+          },
+          orderBy: { featured: 'desc' },
         },
-        orderBy: { featured: 'desc' },
       },
-    },
-  });
+    });
+  } catch {
+    return (
+      <div className="min-h-screen pt-24 pb-16 flex items-center justify-center px-4">
+        <div className="text-center">
+          <Globe className="w-16 h-16 mx-auto text-blue-400/20 mb-4" />
+          <h2 className="text-2xl font-bold text-white mb-2">Service Temporarily Unavailable</h2>
+          <p className="text-blue-300/50 mb-8">We&apos;re having trouble reaching the database. Please try again shortly.</p>
+          <Link href={`/${locale}/destinations`} className="inline-flex items-center gap-2 px-6 py-3 bg-blue-600 hover:bg-blue-500 text-white font-medium rounded-xl transition-colors">
+            <ArrowLeft className="w-4 h-4" />
+            {t('backToDestinations')}
+          </Link>
+        </div>
+      </div>
+    );
+  }
 
   if (!country) notFound();
 
