@@ -3,6 +3,7 @@
     "home": "Bosh sahifa",
     "explore": "Ko'rish",
     "about": "Loyiha haqida",
+    "panorama": "360° sayohat",
     "tagline": "Virtual Sayohat O'zbekiston",
     "signIn": "Kirish",
     "signOut": "Chiqish",
@@ -100,5 +101,16 @@
     "bazaar": "Bozor",
     "mosque": "Masjid",
     "mausoleum": "Maqbara"
+  },
+  "panorama": {
+    "title": "360° Virtual sayohat",
+    "subtitle": "Haqiqiy 360° panorama orqali shahar ko'rinishini interaktiv tarzda tomosha qiling.",
+    "description": "Ushbu sahifada haqiqiy equirectangular 360° panorama tasvirlari ishlatilgan. Siz ko'rinishni sichqoncha yoki barmoq bilan barcha yo'nalishda aylantira olasiz. Tasvirlar Creative Commons litsenziyasi ostida Wikimedia Commons saytidan olingan.",
+    "select_panorama": "Panorama tanlang",
+    "drag_hint": "Rasmni sichqoncha yoki barmoq bilan aylantiring",
+    "format_note": "Ushbu sahifada 2:1 equirectangular formatdagi haqiqiy 360° panorama tasvirlaridan foydalanildi. Ko'rish Pannellum WebGL viewer orqali amalga oshiriladi.",
+    "card_title": "360° Virtual sayohat",
+    "card_desc": "Panoramalarni 360° interaktiv tarzda tomosha qiling.",
+    "card_btn": "Ko'rish"
   }
 }

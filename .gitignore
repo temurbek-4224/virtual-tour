@@ -45,3 +45,7 @@ next-env.d.ts
 
 # Claude Code IDE settings
 .claude/
+
+# Original (unoptimized) source images — too large for git, regenerate with npm run optimize:*
+public/images/360/
+public/images/tashkent/

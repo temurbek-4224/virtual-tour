@@ -43,6 +43,7 @@ export default function Navbar() {
   const navLinks = [
     { href: "/", label: t("home") },
     { href: "/explore", label: t("explore") },
+    { href: "/panorama", label: t("panorama") },
     { href: "/about", label: t("about") },
   ];
 

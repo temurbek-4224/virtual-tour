@@ -13,6 +13,7 @@ import {
   Globe,
   Map,
   Play,
+  Camera,
 } from "lucide-react";
 import type { Metadata } from "next";
 
@@ -70,9 +71,10 @@ export default async function HomePage({
   params: { locale: string };
 }) {
   const { locale } = await Promise.resolve(params);
-  const [t, tCat, featuredLocations, siteConfig] = await Promise.all([
+  const [t, tCat, tPano, featuredLocations, siteConfig] = await Promise.all([
     getTranslations({ locale, namespace: "home" }),
     getTranslations({ locale, namespace: "categories" }),
+    getTranslations({ locale, namespace: "panorama" }),
     getFeaturedLocations(6),
     getSiteConfig(),
   ]);
@@ -245,6 +247,43 @@ export default async function HomePage({
                 <p className="text-muted-foreground text-sm leading-relaxed">{desc}</p>
               </div>
             ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ── 360° Panorama CTA ── */}
+      <section className="py-20 px-4 sm:px-6 bg-muted/30">
+        <div className="container">
+          <div className="relative overflow-hidden rounded-3xl bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 text-white p-8 sm:p-12 flex flex-col sm:flex-row items-center gap-8">
+            {/* Decorative circle */}
+            <div className="absolute -right-16 -top-16 h-64 w-64 rounded-full bg-white/5 pointer-events-none" />
+            <div className="absolute -right-8 -bottom-8 h-40 w-40 rounded-full bg-primary/20 pointer-events-none" />
+
+            <div className="flex-1 relative z-10">
+              <div className="inline-flex items-center gap-2 bg-white/10 border border-white/20 rounded-full px-3 py-1 text-xs font-medium mb-4">
+                <Camera className="h-3 w-3" />
+                <span>360° Panorama</span>
+              </div>
+              <h2 className="text-2xl sm:text-3xl font-bold mb-3">
+                {tPano("card_title")}
+              </h2>
+              <p className="text-white/70 text-base leading-relaxed max-w-md">
+                {tPano("card_desc")}
+              </p>
+            </div>
+
+            <div className="relative z-10 flex-shrink-0">
+              <Button
+                asChild
+                size="lg"
+                className="bg-white text-slate-900 hover:bg-white/90 px-8 font-semibold shadow-lg"
+              >
+                <Link href="/panorama">
+                  {tPano("card_btn")}
+                  <ArrowRight className="h-4 w-4 ml-1" />
+                </Link>
+              </Button>
+            </div>
           </div>
         </div>
       </section>

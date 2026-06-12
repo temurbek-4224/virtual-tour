@@ -3,6 +3,7 @@
     "home": "Home",
     "explore": "Explore",
     "about": "About",
+    "panorama": "360° Tour",
     "tagline": "Virtual Tour Uzbekistan",
     "signIn": "Sign In",
     "signOut": "Sign Out",
@@ -100,5 +101,16 @@
     "bazaar": "Bazaar",
     "mosque": "Mosque",
     "mausoleum": "Mausoleum"
+  },
+  "panorama": {
+    "title": "360° Virtual Tour",
+    "subtitle": "Experience real 360° panoramas and explore the city view interactively.",
+    "description": "This page uses real equirectangular 360° panorama images. You can rotate the view in all directions using your mouse or touch. The images are sourced from Wikimedia Commons under a Creative Commons license.",
+    "select_panorama": "Select a panorama",
+    "drag_hint": "Rotate the image with mouse or touch",
+    "format_note": "This page uses real 360° panorama images in 2:1 equirectangular format, rendered with the Pannellum WebGL viewer.",
+    "card_title": "360° Virtual Tour",
+    "card_desc": "Explore panoramas interactively in 360°.",
+    "card_btn": "View"
   }
 }
